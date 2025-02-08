@@ -22,7 +22,7 @@ function UserInput() {
     console.log('User Profile Data:', userData);
 
     // Send data to backend
-    fetch('http://localhost:5000/userinput', {
+    fetch('https://igdtudw.onrender.com/userinput', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
