@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Sage from '../images/Sage logo.png'
-import './Chatbox.css'
+import './chatbox.css'
 import { marked } from 'marked';
 
 
