@@ -4,7 +4,7 @@ import Home from './components/Home'
 import Header from './components/Header'
 import UserInput from './components/UserInput'
 import Roadmap from './components/Roadmap'
-import Chatbox from './components/Chatbox'
+import Chatbox from './components/chatbox'
 import './App.css'
 import './styles/themes.css'
 
