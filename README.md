@@ -1,119 +1,82 @@
-Hostel Menu Diet Planner
+# Hostel Menu Diet Website
 
-Overview
+## 📌 Overview
+This project is a **Hostel Menu Diet Website** that helps users plan their diet using **Gemini API**. The platform includes features such as:
+- **User Input Section** 📝
+- **Roadmap Section** 🛤️
+- **Chat with Trimly** 💬
 
-Hostel Menu Diet Planner is a web-based platform designed to help hostel residents plan their diets effectively. It utilizes the Gemini API for AI-powered diet suggestions. The platform features a user-friendly interface built with React for the frontend and Node.js with Express for the backend.
+Built using **React** for the frontend and **Node.js + Express** for the backend.
+
+---
+
+## 🚀 Tech Stack
+- **Frontend:** React, Vite, CSS
+- **Backend:** Node.js, Express.js
+- **API:** Gemini API
+- **Deployment:** Vercel (Frontend), Render (Backend)
+
+---
+
+## 🛠️ Setup & Installation
+### 1️⃣ Clone the repository
+```sh
+git clone https://github.com/your-repo-url.git
+cd your-project-folder
+
+
+cd frontend
+npm install
+npm run dev
+
+cd backend
+npm install
+node server.js
 
 Features
 
-User Input Section: Users can input their hostel menu, dietary preferences, and health goals.
+User Input Section: Allows users to input hostel menu details.
 
-Roadmap Section: Provides a personalized dieting plan based on user input.
+Roadmap Section: Generates a personalized diet plan.
 
-Chat with Trimly: AI-powered chatbot that offers dietary suggestions and answers related queries.
+Chat with Trimly: AI-powered chat assistant for diet queries.
 
-Tech Stack
+🚀 Deployment Guide
 
-Frontend: React.js (Vite for build optimization)
+Frontend (Vercel)
 
-Backend: Node.js, Express.js
+Push the frontend code to GitHub.
 
-API: Gemini API for AI-based diet recommendations
+Go to Vercel, create a project, and select the frontend repository.
 
-Deployment: Vercel (Frontend), Render (Backend)
+Set the build command to:
 
-Installation & Setup
+npm run build
 
-Prerequisites
+Set the output directory to:
 
-Ensure you have the following installed on your system:
+frontend/build
 
-Node.js & npm
+Deploy and get the frontend URL!
 
-Git
+Backend (Render)
 
-Clone the Repository
+Push the backend code to GitHub.
 
-git clone https://github.com/your-username/hostel-menu-diet.git
-cd hostel-menu-diet
+Go to Render, create a new web service, and select the backend repository.
 
-Backend Setup
+Set the start command:
 
-Navigate to the backend directory:
+node server.js
 
-cd backend
+Add environment variables (like MONGO_URI, PORT).
 
-Install dependencies:
+Deploy and get the backend URL!
 
-npm install
+Update Frontend API Calls
 
-Create a .env file and add the required environment variables:
+Find where API calls are made in the frontend and update them:
 
-PORT=5000
-GEMINI_API_KEY=your_api_key_here
+🤝 Contributing
 
-Start the backend server:
-
-npm start
-
-Frontend Setup
-
-Navigate to the frontend directory:
-
-cd ../frontend
-
-Install dependencies:
-
-npm install
-
-Start the frontend server:
-
-npm run dev
-
-Deployment
-
-Deploying Frontend (Vercel)
-
-Push frontend code to GitHub.
-
-Go to Vercel, import the repository, and set the root directory to frontend/.
-
-Deploy the project.
-
-Deploying Backend (Render)
-
-Push backend code to GitHub.
-
-Go to Render, create a new web service, and link the repository.
-
-Set environment variables in the Render dashboard.
-
-Deploy the backend.
-
-Usage
-
-Visit the deployed frontend URL.
-
-Enter your hostel menu in the User Input section.
-
-View personalized diet plans in the Roadmap section.
-
-Chat with Trimly for AI-powered dietary advice.
-
-Future Enhancements
-
-Integration with a database for saving user preferences.
-
-More advanced AI suggestions based on health conditions.
-
-Mobile app version.
-
-Contributing
-
-Pull requests are welcome! If you have suggestions for improvements, feel free to open an issue.
-
-License
-
-This project is licensed under the MIT License.
-
-Enjoy using Hostel Menu Diet Planner! 🚀
+Feel free to submit issues and pull requests!
