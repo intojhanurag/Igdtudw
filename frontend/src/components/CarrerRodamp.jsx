@@ -9,7 +9,6 @@ const CareerRoadmap = () => {
   const interests = [
     { value: 'dieting', label: 'Dieting Roadmap' },
   ];
-
   const handleInterestChange = (e) => {
     setSelectedInterest(e.target.value);
     if (e.target.value !== 'other') {
