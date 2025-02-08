@@ -27,6 +27,9 @@ coverage/
 # Mac system files
 .DS_Store
 
+
+backend2/.env
+
 # Linux system files
 *~
 

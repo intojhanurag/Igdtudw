@@ -10,6 +10,9 @@ const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
 app.use(cors());
 
+// Use express.json() middleware to parse JSON bodies
+app.use(express.json());
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Extract text from PDF or image file
@@ -28,48 +31,35 @@ async function processFile(file) {
 async function generateDietPlan(userData, menuText) {
   const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
 
-  // Construct a prompt to generate the diet plan for each day of the week
   const prompt = `
-    Create a structured diet plan for a week (Monday to Sunday) based on the following menu and user information:
+    Create a structured diet plan based on the following menu and user information:
     - User data: ${JSON.stringify(userData)}
     - Menu items: ${menuText}
-    - Structure the plan for each day of the week, with:
-      - Meal times: Breakfast, Lunch, Snacks, Dinner
-      - Food items for each meal (name and quantity)
-      - Preparation instructions for each food item
-      - Ensure that there are 4-5 meals per day (including snacks)
-      - Each day's plan should be balanced, vegetarian, and aligned with the user's dietary preferences.
-      
+    - Structure the plan from morning to night, with:
+      - Meal times (Breakfast, Lunch, Snacks, Dinner)
+      - Food items for each meal
+      - Quantity and preparation instructions for each food item
+      - 4-5 meals per day
+      - Ensure the plan is vegetarian and balanced.
+
     Format the diet plan in JSON with the following structure:
     {
-      "Monday": {
-        "Breakfast": [{ "food": "item name", "quantity": "amount", "instructions": "how to prepare" }],
-        "Lunch": [{ "food": "item name", "quantity": "amount", "instructions": "how to prepare" }],
-        "Snacks": [{ "food": "item name", "quantity": "amount", "instructions": "how to prepare" }],
-        "Dinner": [{ "food": "item name", "quantity": "amount", "instructions": "how to prepare" }]
-      },
-      "Tuesday": { ... },
-      "Wednesday": { ... },
-      "Thursday": { ... },
-      "Friday": { ... },
-      "Saturday": { ... },
-      "Sunday": { ... }
+      "Breakfast": [{ "food": "item name", "quantity": "amount", "instructions": "how to prepare" }],
+      "Lunch": [{ "food": "item name", "quantity": "amount", "instructions": "how to prepare" }],
+      "Snacks": [{ "food": "item name", "quantity": "amount", "instructions": "how to prepare" }],
+      "Dinner": [{ "food": "item name", "quantity": "amount", "instructions": "how to prepare" }]
     }
   `;
 
-  // Generate content using the AI model
   const result = await model.generateContent(prompt);
   const response = await result.response;
-
-  // Log the raw response for debugging
-  const rawResponse = response.text(); // Get the raw text response from AI model
-  console.log('Raw response:', rawResponse); // Log to console for debugging
-
-  // Clean up the response by removing unwanted markdown or code blocks
+  
+  const rawResponse = response.text();
+  console.log('Raw response:', rawResponse); 
+  
   const cleanedResponse = rawResponse.replace(/```json|```/g, '').trim();
 
   try {
-    // Parse the cleaned response into a valid JSON object
     const dietPlan = JSON.parse(cleanedResponse);
     return dietPlan;
   } catch (error) {
@@ -78,15 +68,35 @@ async function generateDietPlan(userData, menuText) {
   }
 }
 
+app.post('/api/sage/chat', async (req, res) => {
+  const { message } = req.body;
+
+  if (!message) {
+    return res.status(400).json({ error: 'Message is required.' });
+  }
+
+  try {
+    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const prompt = `User message: ${message}`;
+    
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    
+    res.json({ response: response.text() });
+  } catch (error) {
+    console.error('Error interacting with Gemini:', error);
+    res.status(500).json({ error: 'Failed to get response from Gemini.' });
+  }
+});
+
 app.post('/generate-plan', upload.single('hostelMenu'), async (req, res) => {
   try {
     const userData = req.body;
-    const menuText = await processFile(req.file); // Extract the menu text from the uploaded file
-    
-    // Generate a structured diet plan for the entire week (Monday to Sunday)
+    const menuText = await processFile(req.file); 
+
     const dietPlan = await generateDietPlan(userData, menuText);
 
-    res.json(dietPlan); // Return the generated diet plan as JSON
+    res.json(dietPlan);
   } catch (error) {
     console.error('Error during diet plan generation:', error.message);
     res.status(500).json({ error: error.message });
