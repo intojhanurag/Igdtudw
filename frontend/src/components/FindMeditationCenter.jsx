@@ -15,7 +15,12 @@ const FindMeditationCenter = () => {
       try {
         const response = await fetch(`http://localhost:5000/api/meditation-centers?zipcode=${zipcode}`);
         const data = await response.json();
-        setCenters(data);
+        if(Array.isArray(data)){
+            setCenters(data);
+        } else{
+            console.error('Expected an array but got: ',data)
+            setCenters([]);
+        }
       } catch (error) {
         console.error('Error fetching meditation centers:', error);
       } finally {
