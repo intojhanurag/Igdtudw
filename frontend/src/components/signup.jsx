@@ -1,11 +1,14 @@
 // filepath: /c:/Users/aojha/OneDrive/Desktop/Cohort 3.0 Web Dev/Iddtuw/frontend/src/components/Signup.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import './signup.css';
 
 function Signup() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate=useNavigate();
 
   const handleSubmit = async (e) => {
@@ -27,6 +30,11 @@ function Signup() {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+
   return (
     <div className="signup-container">
       <div className="signup-card">
@@ -39,13 +47,20 @@ function Signup() {
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="password-container">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <FontAwesomeIcon
+              icon={showPassword ? faEyeSlash : faEye}
+              onClick={togglePasswordVisibility}
+              className="password-toggle-icon"
+            />
+          </div>
           <button type="submit">Sign Up</button>
         </form>
         <div className="login-link">

@@ -7,6 +7,22 @@
     background: var(--background);
 }
 
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+.password-container input {
+    flex: 1;
+  }
+  
+.password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: var(--text-secondary);
+  }
 .signup-card {
     background: var(--card-bg);
     border-radius: 8px;
