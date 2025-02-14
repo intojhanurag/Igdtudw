@@ -1,0 +1,50 @@
+.meditation-centers-container {
+    padding: 2rem;
+    background-color: var(--background);
+    color: var(--text-primary);
+  }
+  
+  .centers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .center-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .center-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .center-card h2 {
+    margin-top: 0;
+  }
+  
+  .center-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .center-actions a,
+  .center-actions button {
+    background-color: var(--accent-primary);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .center-actions a:hover,
+  .center-actions button:hover {
+    background-color: var(--accent-secondary);
+  }

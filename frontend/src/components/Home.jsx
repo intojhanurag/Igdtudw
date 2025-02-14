@@ -50,13 +50,15 @@ function Home() {
                     <div className="speech-bubble">Hello! I'm Trimly. How can I help?</div>
                 </div>
                 <div className="search-container">
-                    <form onSubmit={handleSearch}>
+                
+                    <form onSubmit={handleSearch} className='search-form'>
                         <input
                             type="text"
-                            placeholder="Search the meditation center near by you"
+                            placeholder="Enter PinCode"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="search-input"
+                            required
+                            className='search-input'
                         />
                         <button type="submit" className="search-button">Search</button>
                     </form>

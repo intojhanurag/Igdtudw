@@ -17,6 +17,10 @@
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+ /* Match the font weight */
+  color: var(--text-primary);
+
 }
 
 .dropdown-title:hover {

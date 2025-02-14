@@ -1,0 +1,39 @@
+.skeleton-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .skeleton-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .skeleton-title,
+  .skeleton-text,
+  .skeleton-button {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  .skeleton-title {
+    width: 60%;
+    height: 20px;
+  }
+  
+  .skeleton-text {
+    width: 80%;
+    height: 15px;
+  }
+  
+  .skeleton-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .skeleton-button {
+    width: 45%;
+    height: 30px;
+  }

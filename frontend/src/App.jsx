@@ -7,7 +7,7 @@ import Roadmap from './components/Roadmap'
 import Chatbox from './components/chatbox'
 import Login from './components/Login';
 import Articles from './components/Articles'; // Import the Articles component
-
+import DietPlan from './components/DietPlan';
 import FindMeditationCenter from './components/FindMeditationCenter';
 
 
@@ -48,6 +48,8 @@ function App() {
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} /> {/* Protect Profile route */}
         <Route path="/find-meditation-center" element={<FindMeditationCenter />} /> {/* Add the FindMeditationCenter route */}
         <Route path="/articles" element={<Articles />} /> {/* Add the Articles route */}
+        <Route path="/diet-plan" element={<DietPlan />} /> {/* Add the DietPlan route */}
+
       </Routes>
       <Footer/>
     </div>

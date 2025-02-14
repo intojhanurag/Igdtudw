@@ -105,7 +105,7 @@ app.post('/api/sage/chat', async (req, res) => {
 app.post('/generate-plan', upload.single('hostelMenu'), async (req, res) => {
   try {
     const userData = req.body;
-    const menuText = await processFile(req.file); 
+    const menuText = req.file ? await processFile(req.file) : '';
 
     const dietPlan = await generateDietPlan(userData, menuText);
 
@@ -115,6 +115,54 @@ app.post('/generate-plan', upload.single('hostelMenu'), async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+app.get('/api/meditation-centers', async (req, res) => {
+  const { zipcode } = req.query;
+
+  const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+
+  const prompt = `
+    Provide a list of 5-6 meditation centers near the pincode ${zipcode}. 
+    Include the name, address, pincode, latitude, longitude, and a link to view on Google Maps for each center.
+    Format the response in JSON with the following structure:
+    [
+      {
+        "name": "Center Name",
+        "address": "Center Address",
+        "zipcode": "Center Pincode",
+        "latitude": "Center Latitude",
+        "longitude": "Center Longitude",
+        "mapLink": "Google Maps Link"
+      },
+      ...
+    ]
+  `;
+  try {
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const rawResponse = response.text();
+
+    console.log('Raw response:', rawResponse); 
+
+    let centers;
+
+    try {
+      centers = JSON.parse(rawResponse.replace(/```json|```/g, '').trim());
+    } catch (parseError) {
+      console.error('JSON Parse Error:', parseError);
+      return res.status(500).json({ error: 'Invalid JSON response from Gemini.' });
+    }
+    
+    // const cleanedResponse = rawResponse.replace(/```json|```/g, '').trim();
+    // const centers = JSON.parse(cleanedResponse);
+    
+    res.json(centers);
+  } catch (error) {
+    console.error('Error fetching meditation centers:', error);
+    res.status(500).json({ error: 'Failed to fetch meditation centers.' });
+  }
+});
+
 
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
