@@ -48,3 +48,9 @@
   .center-actions button:hover {
     background-color: var(--accent-secondary);
   }
+
+  @media (max-width: 768px) {
+    .centers-grid {
+      grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+  }
