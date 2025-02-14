@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
 import Sage from '../images/Sage.png';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
+
 
 function Home() {
     const navigate = useNavigate();
@@ -11,7 +13,6 @@ function Home() {
     const handleImageClick = () => {
         navigate('/chatbox');
     };
-
     const handleSearch = (e) => {
         e.preventDefault();
         navigate(`/find-meditation-center?zipcode=${searchQuery}`);
@@ -76,8 +77,8 @@ function Home() {
 
                         <h2>How to Use Calore</h2>
                         <div className="card-carousel" ref={carouselRef}>
-                            {[...Array(2)].map(() => ( // Duplicate the cards
-                                <>
+                            {[...Array(2)].map((_,index) => ( // Duplicate the cards
+                                <React.Fragment key={index}>
                                     <div className="card">
                                         <h3>Create Your Profile</h3>
                                         <p>Start by visiting the User Input page to tell us about your dietary preferences, fitness goals, and daily routine.</p>
@@ -90,7 +91,7 @@ function Home() {
                                         <h3>Chat with Trimly</h3>
                                         <p>Get help with meal planning, nutrition tracking, and fitness guidance.</p>
                                     </div>
-                                </>
+                                </React.Fragment>
                             ))}
                         </div>
 
