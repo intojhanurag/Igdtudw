@@ -2,12 +2,20 @@
   padding: 2rem;
   background-color: var(--background);
   color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  
 }
 
 .user-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
+  max-width: 600px;
 }
 
 .form-section {
@@ -36,14 +44,14 @@
   padding: 0.75rem 1.5rem;
   background-color: var(--accent-primary);
   color: #fff;
-  margin-bottom: 35px;
-  border-color: antiquewhite;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 310px;
+  border-color: white;
+  margin-bottom: 35px;
   width: 150px;
-
-  transition: background-color 0.3s ease;
+  margin: 0 auto;
+/* Center the button */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -73,6 +81,9 @@
 .diet-plan-table th {
   background-color: var(--header);
   color: var(--text-primary);
+}
+.spinning-cat-btn{
+  margin-top: 15px;
 }
 
 .diet-plan-table td {
