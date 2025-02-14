@@ -3,6 +3,7 @@ import './PageStyles.css'
 import './UserInput.css'
 import { useNavigate } from 'react-router-dom';
 import Roadmap from './Roadmap';
+import ProtectedRoute from './ProtectedRoute';
 import spinningCatVideo from '../images/nethenoob vid.mp4';
 
 function UserInput() {

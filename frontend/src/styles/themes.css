@@ -9,7 +9,9 @@
     --dark-bubble-user: #9d8ba5;  /* Muted lavender */
     --dark-card-bg: #4a3654;     /* Muted purple */
     --dark-card-text: #c2d6bc;   /* Soft sage green */
-    --dark-accent: #6b4f7b;      /* Links/button color */
+    --dark-accent: #6b4f7b;
+    --dark-footer-bg: #4a3654;   /* Footer background color */
+    --dark-footer-text: #c2d6bc;       /* Links/button color */
   
     /* Light Theme */
     --light-background: #c2d6bc;  /* Soft sage green */
@@ -21,7 +23,9 @@
     --light-bubble-user: #b5b0b8;  /* Light lavender-grey */
     --light-card-bg: #b5b0b8;    /* Light lavender grey */
     --light-card-text: #2d1b36;  /* Deep-purple */
-    --light-accent: #df8ba7;     /* Links/button color */
+    --light-accent: #df8ba7; 
+    --light-footer-bg: #e6c3d7;  /* Footer background color */
+    --light-footer-text: #2d1b36;    /* Links/button color */
   
     /* Default theme (dark) */
     --background: var(--dark-background);
@@ -34,6 +38,8 @@
     --card-bg: var(--dark-card-bg);
     --card-text: var(--dark-card-text);
     --accent: var(--dark-accent);
+    --footer-bg: var(--dark-footer-bg);
+    --footer-text: var(--dark-footer-text);
  
     --primary-color: #007bff;
     --accent-color: #0056b3;
@@ -49,6 +55,8 @@
     --card-background: #1f2937;   /* Slightly lighter than background */
     --text-color: #f3f4f6;       /* Off-white for better eye comfort */
     --shadow-color: rgba(0, 0, 0, 0.2);
+    --footer-bg: var(--dark-footer-bg);
+    --footer-text: var(--dark-footer-text);
 
   }
   
@@ -64,4 +72,6 @@
     --card-bg: var(--light-card-bg);
     --card-text: var(--light-card-text);
     --accent: var(--light-accent);
+    --footer-bg: var(--light-footer-bg);
+    --footer-text: var(--light-footer-text);
   }

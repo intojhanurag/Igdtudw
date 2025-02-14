@@ -1,19 +1,32 @@
+// filepath: /c:/Users/aojha/OneDrive/Desktop/Cohort 3.0 Web Dev/Iddtuw/backend2/server3.js
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const multer = require('multer');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const pdfParse = require('pdf-parse');
 const tesseract = require('tesseract.js');
-const cors = require('cors');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
 app.use(cors());
-
-// Use express.json() middleware to parse JSON bodies
-app.use(express.json());
+app.use(bodyParser.json());
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+// Connect to MongoDB
+mongoose.connect('mongodb+srv://aojharaj2004:arpitojha%40com@cluster0.qhh6b.mongodb.net/Calore')
+.then(() => {
+  console.log('Connected to MongoDB');
+}).catch((error) => {
+  console.error('Error connecting to MongoDB:', error.message);
+});
+
+// Use auth routes
+app.use('/api/auth', authRoutes);
 
 // Extract text from PDF or image file
 async function processFile(file) {

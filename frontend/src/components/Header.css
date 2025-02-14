@@ -7,7 +7,55 @@
     left: 0;
     z-index: 1000;
   }
-  
+  /* Add styles for the dropdown menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-title {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-title:hover {
+  background-color: var(--accent-primary);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--header);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 1000;
+  white-space:nowrap;
+}
+
+.dropdown-menu.open {
+  display: grid;
+
+}
+
+.dropdown-menu li {
+  width: auto;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--accent-secondary);
+}
   .navbar {
     max-width: 1200px;
     margin: 0 auto;
@@ -110,6 +158,18 @@
     justify-content: center;
     transition: background-color 0.3s ease;
   }
+
+  .user-profile-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: opacity 0.3s ease;
+  }
+  
+  .user-profile-icon:hover {
+    opacity: 0.8;
+  }
   
   .theme-toggle:hover {
     background-color: var(--accent-primary);
@@ -180,6 +240,12 @@
     .menu-toggle {
       display: block;
     }
+
+  
+    .user-profile-icon {
+      display: none; /* Hide profile icon on smaller screens */
+    }
+  
   
     .nav-menu {
       position: fixed;
@@ -218,6 +284,11 @@
       padding: 1rem;
       font-size: 1.1rem;
     }
+
+    .theme-toggle-item {
+      margin-top: 1rem;
+    }
+  
   
     /* Hide theme-toggle-item on mobile */
     @media (max-width: 768px) {
