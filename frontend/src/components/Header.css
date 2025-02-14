@@ -7,6 +7,12 @@
     left: 0;
     z-index: 1000;
   }
+
+  @media (max-width: 768px) {
+    .header {
+      padding: 0.25rem 0; /* Reduce padding on smaller screens */
+    }
+  }
   /* Add styles for the dropdown menu */
 .dropdown {
   position: relative;

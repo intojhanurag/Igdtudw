@@ -3,6 +3,7 @@
   background-color: var(--background);
   color: var(--text-primary);
   min-height: calc(100vh - 200px); /* Adjust height to fit the screen minus header and footer */
+  padding-top: 4rem;
 }
 
 .articles-grid {

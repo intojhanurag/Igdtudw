@@ -29,7 +29,7 @@
         max-width: 300px;
         margin-top: 50px;
     }
-
+    
     .image-container {
         min-height: 300px;
     }
@@ -43,6 +43,10 @@
 
     .text-container {
         padding: 0.5rem;
+    }
+    .search-button {
+        margin-top: 25px;
+        margin-left: 0.5rem; /* Add margin to separate the button from the input */
     }
 }
 
