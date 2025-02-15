@@ -13,7 +13,7 @@ const FindMeditationCenter = () => {
   useEffect(() => {
     const fetchCenters = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/meditation-centers?zipcode=${zipcode}`);
+        const response = await fetch(`https://igdtudw.onrender.com/api/meditation-centers?zipcode=${zipcode}`);
         const data = await response.json();
         if(Array.isArray(data)){
             setCenters(data);
