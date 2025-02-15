@@ -6,20 +6,31 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import './signup.css';
 
 function Signup() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    username: '',
+    password: ''
+  });
+  const [showPassword,setShowPassword]=useState(false)
   const navigate=useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle sign-up logic here
-    const response = await fetch('https://igdtudw.onrender.com/api/auth/signup', {
+    const response = await fetch('http://localhost:5000/api/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify(formData),
     });
 
     if (response.ok) {
@@ -40,27 +51,55 @@ function Signup() {
       <div className="signup-card">
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
           <input
             type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
             required
           />
-          <div className="password-container">
-            <input
-              type={showPassword ? 'text' : 'password'}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <FontAwesomeIcon
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type={showPassword ? 'text' : 'password'}
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <FontAwesomeIcon
               icon={showPassword ? faEyeSlash : faEye}
               onClick={togglePasswordVisibility}
               className="password-toggle-icon"
-            />
-          </div>
+          />
+        </div>
           <button type="submit">Sign Up</button>
         </form>
         <div className="login-link">

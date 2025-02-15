@@ -1,28 +1,64 @@
+
 .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 80px);
-    padding: 2rem;
-    background: var(--background);
-  }
   
-  .profile-card {
-    background: var(--card-bg);
-    border-radius: 8px;
-    padding: 2rem;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .profile-card h2 {
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
-  }
-  
-  .profile-card p {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-  }
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--background);
+  color: var(--text-primary);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 100px); /* Adjust height to ensure footer stays at the bottom */
+  perspective: 1000px; /* Add perspective for 3D effect */
+}
+
+.profile-card {
+  margin-top: 50%;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d; /* Enable 3D transformations */
+}
+
+.profile-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--accent); /* Add border to the avatar */
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-details {
+  text-align: center; /* Center align the details */
+}
+
+.profile-details p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem; /* Increase font size for better readability */
+}
+
+.profile-details p strong {
+  color:white; /* Highlight the labels */
+}

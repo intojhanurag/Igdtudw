@@ -276,9 +276,8 @@
     }
 
   
-    .user-profile-icon {
-      display: none; /* Hide profile icon on smaller screens */
-    }
+    /* .user-profile-icon {
+      display: none; /* Hide profile icon on smaller screens */ 
   
   
     .nav-menu {

@@ -15,7 +15,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle login logic here
-    const response = await fetch('https://igdtudw.onrender.com/api/auth/login', {
+    const response = await fetch('http://localhost:5000/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,6 +29,7 @@ function Login() {
 
       localStorage.setItem('token', data.token); // Store the token in local storage
       localStorage.setItem('username', username); // Store the username in local storage
+    
       navigate('/userinput')
       // Store the token in local storage or state
     } else {
