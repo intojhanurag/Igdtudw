@@ -90,3 +90,11 @@
   background-color: var(--background);
   color: var(--text-primary);
 }
+@media (max-width:768px) {
+  .profile-heading{
+    margin-top: 45px;
+
+  }
+
+  
+}

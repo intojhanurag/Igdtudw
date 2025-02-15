@@ -108,6 +108,9 @@
     .title {
       font-size: 1.2rem;
     }
+    .nav-left{
+      justify-content: flex-start;
+    }
   }
   
   .logo:hover {
@@ -334,7 +337,13 @@
         margin: 0;
       }
     }
-  
+    /* @media (max-width:768px) {
+      .title{
+        margin-right:15px
+      }
+      
+    }
+   */
     /* Add overlay when menu is open */
     .nav-menu.open::before {
       content: '';
