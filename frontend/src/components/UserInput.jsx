@@ -3,7 +3,6 @@ import './PageStyles.css';
 import './UserInput.css';
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner';
-import spinningCatVideo from '../images/nethenoob vid.mp4';
 
 function UserInput() {
   const [selectedInterest, setSelectedInterest] = useState('');
@@ -131,8 +130,8 @@ function UserInput() {
             <div className="video-modal-overlay">
               <div className="video-modal">
                 <button className="close-button" onClick={() => setShowVideo(false)}>×</button>
-                <video autoPlay muted>
-                  <source src={spinningCatVideo} type="video/mp4" />
+                <video autoPlay>
+                  <source src="/Cat Vibing.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
