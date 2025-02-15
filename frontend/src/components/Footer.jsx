@@ -28,9 +28,9 @@ const Footer = () => {
       <div className="footer-column">
         <h3>Contact & Support</h3>
         <ul>
-          <li>Virtual Office: Zen Valley, MV 12345</li>
+          <li>Virtual Office: Noida, 201310</li>
           <li>Support: 1-800-MEDITATE</li>
-          <li>Email: support@meditaker.com</li>
+          <li>Email:aojharaj2004@gmail.com</li>
           <li>Availability: 24/7 AI Chatbot Support</li>
         </ul>
       </div>
@@ -38,9 +38,9 @@ const Footer = () => {
         <h3>Follow Us</h3>
         <div className="social-icons">
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+          <a href="https://x.com/AnuragOjha8355" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+          <a href="https://www.instagram.com/initial_coder/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+          <a href="https://www.linkedin.com/in/anuragojha2004/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
         </div>
       </div>
     </footer>
