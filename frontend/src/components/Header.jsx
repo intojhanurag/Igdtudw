@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa'; 
 import Sage from '../images/Sage.png';
+import {FaHeart} from 'react-icons/fa';
 import './Header.css';
 
 function Header({ theme, toggleTheme }) {
@@ -37,7 +38,10 @@ function Header({ theme, toggleTheme }) {
               className="logo"
             />
           </Link>
-          <Link to='/' className="title">Calore</Link>
+          <Link to='/' className="title">
+          <FaHeart className="heart-logo"/>
+            Calore 
+          </Link>
         </div>
         
         <div className="nav-right">
