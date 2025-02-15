@@ -20,7 +20,7 @@ function UserInput() {
     
     // Log the collected data
     console.log('User Profile Data:', userData);
-
+    
     try {
       const response = await fetch('https://igdtudw.onrender.com/generate-plan', {
         method: 'POST',
