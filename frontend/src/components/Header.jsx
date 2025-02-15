@@ -20,6 +20,7 @@ function Header({ theme, toggleTheme }) {
   };
 
   const handleProfileClick = () => {
+    closeMenu();
     navigate('/profile');
   };
 
