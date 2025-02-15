@@ -11,18 +11,23 @@
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
   }
+
   
 .password-container input {
     flex: 1;
+    padding-right: 2.5rem;
   }
   
 .password-toggle-icon {
     position: absolute;
     right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
     color: var(--text-secondary);
-  }
+}
 .signup-card {
     background: var(--card-bg);
     border-radius: 8px;
