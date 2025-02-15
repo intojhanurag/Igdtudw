@@ -145,7 +145,8 @@
 .card {
     flex: 0 0 auto;
     width: 300px;
-    background: linear-gradient(135deg, #3f3939, #221f1f);
+    background: var(--card-bg);
+    color: var(--card-text);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 1rem;
@@ -211,6 +212,9 @@
     border-radius: 4px;
     font-size: 1rem;
     width: 300px;
+    background-color: var(--footer-bg);
+    background-color: var(--input-bg);
+    color: var(--input-text);
     max-width: 100%;
     transition: border-color 0.3s ease;
 }
@@ -224,8 +228,8 @@
     padding: 0.5rem 1rem;
     border-radius: 4px;
     border: 1px solid #ccc;
-    background-color: var(--accent-primary);
-    color: #e6e0e0;
+    background-color: var(--input-bg);
+    color:var(--input-text);
     font-size: 1rem;
     cursor: pointer;
     margin-left: 0.5rem;
@@ -233,9 +237,8 @@
 }
 
 .search-button:hover {
-    background-color: var(--accent-secondary);
-    color: #221f1f;
-    background: #d9a3a3;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px rgba(176, 146, 229, 0.5); /* Green light shadow */
 }
 .card:hover {
     transform: scale(1.05);

@@ -57,6 +57,8 @@
     --shadow-color: rgba(0, 0, 0, 0.2);
     --footer-bg: var(--dark-footer-bg);
     --footer-text: var(--dark-footer-text);
+    --input-bg: var(--dark-footer-bg);
+    --input-text: var(--dark-footer-text);
 
   }
   
@@ -69,9 +71,11 @@
     --hover: var(--light-hover);
     --bubble-sage: var(--light-bubble-sage);
     --bubble-user: var(--light-bubble-user);
-    --card-bg: var(--light-card-bg);
-    --card-text: var(--light-card-text);
+    --card-bg: var(--light-footer-bg);
+    --card-text: var(--light-footer-text);
     --accent: var(--light-accent);
+    --input-bg:var(--light-footer-bg);
+    --input-text:var(--light-footer-text)
     --footer-bg: var(--light-footer-bg);
     --footer-text: var(--light-footer-text);
   }
