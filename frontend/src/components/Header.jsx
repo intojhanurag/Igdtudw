@@ -69,6 +69,10 @@ function Header({ theme, toggleTheme }) {
                   <Link to="/roadmap" onClick={closeMenu}>Nutrimap</Link> {/* Ensure Nutrimap is included */}
               </li>
 
+              <li>
+                  <Link to="/chatbox" onClick={closeMenu}>Chat With Trimly</Link> {/* Ensure Nutrimap is included */}
+              </li>
+
               
               <li className="theme-toggle-item">
                 <button onClick={toggleTheme} className="theme-toggle">
