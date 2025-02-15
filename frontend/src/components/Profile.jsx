@@ -1,9 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoadingSpinner from './LoadingSpinner';
+import Alert from './Alert';
 import './profile.css';
 
 function Profile() {
   const [user, setUser] = useState(null);
+  const [isLoading,setIsLoading]=useState(true);
+  const [error,setError]=useState(null);
   const navigate = useNavigate();
   const cardRef = useRef(null);
 
@@ -23,9 +27,12 @@ function Profile() {
           navigate('/login');
         }
       } catch (error) {
-        console.error('Error fetching user:', error);
+        setError('Error fetching user. Please try again.');
         navigate('/login');
+      } finally{
+        setIsLoading(false);
       }
+     
     };
 
     fetchUser();
@@ -63,6 +70,12 @@ function Profile() {
       }
     };
   }, []);
+  const handleCloseAlert=()=>{
+    setError(null);
+  }
+  if(isLoading){
+    return <LoadingSpinner/>
+  }
 
   if (!user) {
     return <div>Loading...</div>;
@@ -70,6 +83,7 @@ function Profile() {
 
   return (
     <div className="profile-container">
+      {error && <Alert message={error} onClose={handleCloseAlert}/>}
       <div className="profile-card" ref={cardRef}>
         <div className="profile-header">
           <div className="profile-avatar">
