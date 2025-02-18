@@ -1,5 +1,8 @@
 # Hostel Menu Diet Website
 
+Username- NosuAi
+Password- 1234
+
 ## 📌 Overview
 This project is a **Hostel Menu Diet Website** that helps users plan their diet using **Gemini API**. The platform includes features such as:
 - **User Input Section** 📝
