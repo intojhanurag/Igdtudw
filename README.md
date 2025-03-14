@@ -3,6 +3,8 @@
 Username- NosuAi
 Password- 1234
 
+![image alt](https://github.com/intojhanurag/Igdtudw/blob/2428a6b463c58feadab502abcf5dbda2360083d7/Screenshot_2025-03-14-12-20-54-41_40deb401b9ffe8e1df2f1cc5ba480b12.jpg)
+
 ## 📌 Overview
 This project is a **Hostel Menu Diet Website** that helps users plan their diet using **Gemini API**. The platform includes features such as:
 - **User Input Section** 📝
